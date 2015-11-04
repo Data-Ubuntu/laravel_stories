@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('book', 'BookController@index');
-Route::get('book/get/{filename}', ['as' => 'book', 'uses' => 'BookController@get']);
-Route::post('book/add',['as' => 'addentry', 'uses' => 'BookController@add']);
+
+Route::group(array('prefix' => 'admin', 'namespace' => 'App\Http\Admin\Controllers'){
+    Route::resource('categories', 'CategoriesController');
+    Route::resource('products', 'ProductsController');
+    Route::resource('chapters', 'ChaptersController');
+    Route::resource('books', 'BooksController');
+});
+

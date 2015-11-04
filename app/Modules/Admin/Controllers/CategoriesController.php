@@ -11,17 +11,15 @@ use App\Services\ImageService;
 
 class CategoriesController extends Controller {
     use FormBuilderTrait;
-    
-    /**
-     * Display a listing of the resource.
-     *
+
+    /*
      * @return Response
      */
     public function index()
     {   
-        $title = "Danh sách category";
+        $title = "Danh sach category";
         $categories = Category::all();
-        return view("Admin::categories.index", compact('categories', 'title'));
+        return view("Admin::categories.index");
     }
 
     /**
